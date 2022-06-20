@@ -1,0 +1,12 @@
+div{
+    border:  1px solid red;
+}
+
+.board{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+}
