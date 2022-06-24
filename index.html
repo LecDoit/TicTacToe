@@ -5,21 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Taco Toe</title>
-    <script src="script.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <H1>
-        Press Shift to Start and choose symbol
+        Press Shift to Start and choose symbol 
     </H1>
+    <div class="header">
+        <div class="playerOptions">
+            <div class="player1">
+                <form>
+                    <label>Player one name:</label>
+                    <input type="text">
+                </form>
+            </div>
+            <div class="player2">
+                <form>
+                    <label>Player two name:</label>
+                    <input type="text" placeholder="Leave blank to play with AI" >
+                </form>
+
+            </div>
+        </div>
         <div class="XO">
                 <div class="XOChild">x</div>
                 <div class="XOChild" >o</div>
             </div>
         </div>
+    </div>
 
-        <div id="dynamicBoard" class="board">
+    <div id="dynamicBoard" class="board">
+    </div>
+    <div class="winning-message" id="winning-message">
+        <div class="data-winning-message-text">
+            <button id="restartButton">Restart</button>
+            <div class="example" id="example"></div>
+            <div class="example" id="example"></div>
+            <div class="example" id="example"></div>
+            <div class="example" id="example"></div>
+            <div class="example" id="example"></div>
         </div>
+    </div>
     
 </body>
 </html>
