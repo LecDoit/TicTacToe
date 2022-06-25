@@ -40,7 +40,8 @@ div{
 }
 
 .free{
-    background-color: aqua;
+
+    color: rgba(255, 255, 255, 0.397)
 }
 #turn{
     background-color: aquamarine;
@@ -59,9 +60,38 @@ font-size: 150px;
 font-family:  Arial
 }
 
-.example{
-    width: 100px;
-    height: 100px;
-    border: 1px red solid;
+.winning-message{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem ;
+    flex-direction: column;
+}
 
+.winning-message button{
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .60em .5em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.winning-message button:hover{
+    background-color: black;
+    border: 1px solid white;
+    color: white  ;
+}
+
+
+.winning-message.show{
+    display: flex;
 }

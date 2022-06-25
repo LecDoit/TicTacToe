@@ -10,67 +10,27 @@ let gameboard = (function(player) {
     let globalTurn = 0;
     let roundCount = true;
     let countToEnd = 0
- 
+
+
 
 
 
 //3 - the array is dynamically generated
 
     let autoGenerateBoard = (function(){
-
         let board1 = document.querySelector('#dynamicBoard');
-    
         for (let i=9; i>0; i--){
             let NewDiv = document.createElement('div')
             board1.appendChild(NewDiv).setAttribute('id',i)
-            board1.appendChild(NewDiv).setAttribute('class','free')
-            // let zig = document.getElementById(i)
-            // zig.addEventListener('mouseenter',function(e){
-            //     if (roundCount=true){
-            //        zig.innerHTML="X"
-            // } else {
-            //     zig.innerHTML="O"
-            // }
-
-            // })
-
-                   
-
-            // zig.addEventListener('mouseleave',function(e){
-            //     zig.innerHTML=""})
-            
-            
+            board1.appendChild(NewDiv).setAttribute('class','free')   
         }
     })();
 
 //4 funcion allows to put X/O on array
 
-    
-    // document.querySelector('body').addEventListener('click',function(event){
-    //     if (roundCount == true){
-    //         if (event.target.classList[0] == 'free'){
-    //             if (globalTurn % 2 == 0){
-    //                 let addClass = event.target.classList.add('taken')
-    //                 let rmClass = event.target.classList.remove('free')
-    //                 let putX = event.target.innerHTML = "O"
-    //                 roundCount = false
-    //                 winning()
-    //             } else{
-    //                 let addClass = event.target.classList.add('taken')
-    //                 let rmClass = event.target.classList.remove('free')
-    //                 let putX = event.target.innerHTML = "X"
-    //                 roundCount = false
-    //                 winning()
-    //             }}console.log('field has been chosen and roundCount is ' + roundCount)
-    //     } else {
-    //     alert("Please pass it to another player with shift")
-    //     }
-    // })
-
-
     let putXO = (function(event){
         document.getElementById('dynamicBoard').addEventListener('click',function(event){
-            console.log("global turn is:" + globalTurn)
+            // console.log("global turn is:" + globalTurn)
             if (roundCount == true){
                 if (event.target.classList[0] == 'free'){
                     if (globalTurn % 2 == 0){
@@ -78,23 +38,19 @@ let gameboard = (function(player) {
                         let rmClass = event.target.classList.remove('free')
                         let putX = event.target.innerHTML = "O"
                         roundCount = false
-                        let mimi = document.getElementById(event.target.id)
-                        // mimi.addEventListener('mouseenter',function(e){
-                        //     mimi.innerHTML="XX"
-                        
-                        // })
-                        // winning()
+
                     } else{
                         let addClass = event.target.classList.add('taken')
                         let rmClass = event.target.classList.remove('free')
                         let putX = event.target.innerHTML = "X"
                         roundCount = false
-                        // winning()
+
                     }}
-                    // console.log('field has been chosen and roundCount is ' + roundCount)
+                    
             } else {
             alert("Please pass it to another player with shift")
             }
+            
         })
     })();
     
@@ -102,7 +58,10 @@ let gameboard = (function(player) {
 
     let shiftPAss = (function(event){
         let XOChild = document.querySelectorAll('.XOChild');
+        // let cell1 = document.querySelectorAll('.free')
+
         document.addEventListener('keydown',function(event){
+
             if (event.key == 'Shift'){
                 if (globalTurn % 2 == 0){
                     console.log("its X turn")
@@ -110,14 +69,18 @@ let gameboard = (function(player) {
                     XOChild[1].setAttribute('id','')
                     globalTurn++
                     roundCount = true
+                    console.log(countToEnd++)
                 } else {
                     console.log("its O turn")
                     XOChild[0].setAttribute('id','')
                     XOChild[1].setAttribute('id','turn')
                     globalTurn++
                     roundCount = true
+                    console.log(countToEnd++)
+
                 }
-            }console.log('passing to next player ' + roundCount)
+            }
+
         })
 
     })();
@@ -155,7 +118,7 @@ let gameboard = (function(player) {
             } else if (cel4.textContent=='O'&& cel5.textContent=='O'&& cel6.textContent=='O'){
                 alert('O won!')
                 cel4.classList.add('win')
-                cel5classList.add('win')
+                cel5.classList.add('win')
                 cel6.classList.add('win')
             } else if (cel7.textContent=='X' && cel8.textContent=='X'&& cel9.textContent=='X'){
                 alert('X won!')
@@ -218,7 +181,7 @@ let gameboard = (function(player) {
                 cel5.classList.add('win')
                 cel3.classList.add('win')   
             } else{
-                console.log(countToEnd++)
+                // console.log(countToEnd++)
                 if (countToEnd==9){
                     alert("draw!")
                 }
@@ -229,72 +192,29 @@ let gameboard = (function(player) {
 
 
 
-    // let hover = (function(e){
+    let hover = (function(e){
+        let XOHO = document.querySelectorAll('.free')
+        XOHO.forEach(function(e){
+            e.addEventListener('mouseenter',function(event){
+                if (e.classList=='free' && roundCount==true){
+                    if(globalTurn%2==0){
+                    event.target.innerHTML="O"
+                } else{
+                    event.target.innerHTML="X"
+                }}
+            })
+            e.addEventListener('mouseleave',function(event){
+                if (e.classList=='free'){
+                    event.target.innerHTML=""   
+                }
         
-    //     for (let i=9; i>0; i--){
-    //     let XOHO = document.getElementById(i)
-       
-    //     if (roundCount == true && XOHO.classList == 'free' && globalTurn % 2==0){
-    //         XOHO.addEventListener('mouseenter',function(event){
-    //         XOHO.innerHTML="X"
-            
-    //         })
-    //         XOHO.addEventListener('mouseleave',function(event){
-    //         // XOHO.innerHTML=""
-                
-    //         })
-        
-    //     }else  {
-    //         XOHO.addEventListener('mouseenter',function(event){
-    //         XOHO.innerHTML="O"
-    //     })
-    //         XOHO.addEventListener('mouseleave',function(event){
-    //         // XOHO.innerHTML=""
-    //     })
+            })
+    })
 
-    //     }
-    // }
-
-    // })();
+    })();
 })();
 
-// let player = function(name,position,symbol){
-//     this.name = name;
-//     this.position = position;
-//     this.symbol = symbol;
-// }
-
-// let playerFactory = function(name, position,symbol){
-//     return {name,position,symbol}
-// }
-
-// let pika =  new player('pika',"first","cross")
-// let pikaF =  playerFactory('pika',"first","cross")
 
 
-
-
-
-// let single = document.getElementById('1')
-// single.addEventListener('mouseenter',function(e){
-//     single.textContent="x"
-//     console.log(single.textContent)
-// })
-// single.addEventListener('mouseleave',function(e){
-//     single.textContent=""
-// })
-
-
-// let creating = (function(){
-//     let x = document.querySelectorAll('.example')
-//         x.forEach(function(e){
-//             e.preventDefault;
-//             e.addEventListener('mouseenter',function(e){
-//                 e.textContent="x"
-//                 e.innerHTML= '<p>x</p>'
-//                 console.log(e)
-//                 // x.target.classList.add('hover')
-//             })
-//         })
-// })()
-
+// add player base and AI
+// add start window and finish window
