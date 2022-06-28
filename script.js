@@ -4,16 +4,12 @@
 
 
 //2 - everything is in gameboard
-let gameboard = (function(player) {
+let gameboard = (function() {
 
-    this.player = player;
+
     let globalTurn = 0;
     let roundCount = true;
     let countToEnd = 0
-
-
-
-
 
 //3 - the array is dynamically generated
 
@@ -57,6 +53,7 @@ let gameboard = (function(player) {
     
 
     let shiftPAss = (function(event){
+
         let XOChild = document.querySelectorAll('.XOChild');
         // let cell1 = document.querySelectorAll('.free')
 
@@ -98,99 +95,133 @@ let gameboard = (function(player) {
             let cel7 = document.getElementById('7')
             let cel8 = document.getElementById('8')
             let cel9 = document.getElementById('9')
+            let winmsg = document.querySelector('.winning-message')
+            let textdiv = document.createElement('div')
+            winmsg.appendChild(textdiv)
+
         
         
             if (cel1.textContent =='X' && cel2.textContent=='X' && cel3.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel1.classList.add('win')
                 cel2.classList.add('win')
                 cel3.classList.add('win')
             }else if (cel1.textContent =='O'&& cel2.textContent=='O'&& cel3.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel1.classList.add('win')
                 cel2.classList.add('win')
                 cel3.classList.add('win')
             } else if (cel4.textContent=='X'&& cel5.textContent=='X'&& cel6.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel4.classList.add('win')
                 cel5.classList.add('win')
                 cel6.classList.add('win')
             } else if (cel4.textContent=='O'&& cel5.textContent=='O'&& cel6.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel4.classList.add('win')
                 cel5.classList.add('win')
                 cel6.classList.add('win')
             } else if (cel7.textContent=='X' && cel8.textContent=='X'&& cel9.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel8.classList.add('win')
                 cel9.classList.add('win')
             } else if (cel7.textContent=='O'&& cel8.textContent=='O'&& cel9.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel8.classList.add('win')
                 cel9.classList.add('win')
             } else if (cel9.textContent=='X'&& cel6.textContent=='X'&& cel3.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel9.classList.add('win')
                 cel6.classList.add('win')
                 cel3.classList.add('win')
             } else if (cel9.textContent=='O'&& cel6.textContent=='O'&& cel3.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel9.classList.add('win')
                 cel6.classList.add('win')
                 cel3.classList.add('win')
             } else if (cel8.textContent=='X'&& cel5.textContent=='X'&& cel2.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel8.classList.add('win')
                 cel5.classList.add('win')
                 cel2.classList.add('win')
             } else if (cel8.textContent=='O'&& cel5.textContent=='O'&& cel2.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+                
                 cel8.classList.add('win')
                 cel5.classList.add('win')
                 cel2.classList.add('win')
             } else if (cel7.textContent=='X'&& cel4.textContent=='X'&& cel1.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel4.classList.add('win')
                 cel1.classList.add('win')
             } else if (cel7.textContent=='O'&& cel4.textContent=='O'&& cel1.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel4.classList.add('win')
                 cel1.classList.add('win')
             } else if (cel9.textContent=='X'&& cel5.textContent=='X'&& cel1.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel9.classList.add('win')
                 cel5.classList.add('win')
                 cel1.classList.add('win')
             } else if (cel9.textContent=='O'&& cel5.textContent=='O'&& cel1.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+                
                 cel9.classList.add('win')
                 cel5.classList.add('win')
                 cel1.classList.add('win')
             } else if (cel7.textContent=='X'&& cel5.textContent=='X'&& cel3.textContent=='X'){
-                alert('X won!')
+                textdiv.textContent="X Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel5.classList.add('win')
                 cel3.classList.add('win')
             } else if (cel7.textContent=='O'&& cel5.textContent=='O'&& cel3.textContent=='O'){
-                alert('O won!')
+                textdiv.textContent="O Wins!"
+                winmsg.classList.add('show')
+
                 cel7.classList.add('win')
                 cel5.classList.add('win')
                 cel3.classList.add('win')   
             } else{
-                // console.log(countToEnd++)
+
                 if (countToEnd==9){
-                    alert("draw!")
+                    textdiv.textContent="Draw!"
+                    winmsg.classList.add('show')
                 }
             
             }});
     })();
-
-
-
 
     let hover = (function(e){
         let XOHO = document.querySelectorAll('.free')
@@ -210,11 +241,80 @@ let gameboard = (function(player) {
         
             })
     })
-
+    
     })();
+
+
+    let addPlayers = (function(){
+
+        let playerFactory = function(name, symbol){
+            return{name ,symbol}
+        }
+
+
+        let startButton = document.getElementById('start').addEventListener('click',function(){
+            let player1 = document.getElementById('p1').value
+            let player1symbol= 'X'
+            let player2 = document.getElementById('p2').value
+            let player2symbol= 'O'
+            let player1F = playerFactory(player1,player1symbol)
+            let player2F = playerFactory(player2, player2symbol)
+
+            let createConsole = (function(p1, p2){
+                p1 = player1F.name
+                p1s = player1F.symbol
+                p2 = player2F.name
+                p2s = player2F.symbol
+                let header = document.querySelector('.header')
+                let body = document.querySelector('body')
+                header.classList.remove('show')
+                
+                // let playerOptions = document.querySelector('.playerOptions')
+   
+                let nuheader = document.createElement('div')
+                let playerscontainter = document.createElement('div')
+                let playerSymbolscontainter = document.createElement('div')
+
+                let P1name = document.createElement('div')
+                let P2name = document.createElement('div')
+                let p1sym = document.createElement('div')
+                let p2sym = document.createElement('div')
+
+                body.appendChild(nuheader).classList.add('nuheader')
+                nuheader.appendChild(playerscontainter).classList.add('pcont')
+                nuheader.appendChild(playerSymbolscontainter).classList.add('pscont')
+
+
+                playerscontainter.appendChild(P1name).classList.add('players')
+                playerscontainter.appendChild(P2name).classList.add('players')
+                playerSymbolscontainter.appendChild(p1sym).classList.add('XOChild')
+                playerSymbolscontainter.appendChild(p2sym).classList.add('XOChild')
+                P1name.setAttribute('id','1')
+                P2name.setAttribute('id','2')
+                p1sym.setAttribute('id','1')
+                p2sym.setAttribute('id','2')
+                P1name.textContent = p1
+                P2name.textContent = p2
+                p1sym.textContent = p1s
+                p2sym.textContent = p2s
+                let dynamicBoard = document.querySelector('#dynamicBoard');
+                dynamicBoard.classList.add('show')
+
+       
+            })();   
+        })
+    })();
+
+    let restartButton = (function(){
+        let rstbut = document.getElementById('restartButton')
+        rstbut.addEventListener('click',function(){
+            console.log("sex")
+            window.location.reload()
+        })
+    })();
+
+
+
+
 })();
 
-
-
-// add player base and AI
-// add start window and finish window

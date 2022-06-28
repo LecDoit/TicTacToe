@@ -1,6 +1,9 @@
 *,*::after, *::before{
     box-sizing: border-box;
 }
+*{
+    /* border: 1px solid red */
+}
 
 :root{
     --cell-size:170px;
@@ -9,31 +12,124 @@
 
 body{
     margin:0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-rows: 1fr 1fr
+
 }
 
 div{
     border:  1px solid white;
 }
+.header.show{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-rows: 1fr 1fr 2fr;
+    color: white;
+    position: fixed;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+
+    
+
+}
 .header{
+
+    display: none;
+}
+
+
+/* .playerOptions, .XO{
+    height: 100px;
+} */
+
+.XOChild, .playerOptionsChild, .players{
+    height: 100px;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    box-shadow: 1px 1px 10px rgba(0, 255, 106, 0.418);
+
+
+}
+.nuheader{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    color: white;
+
+}
+.pcont{
+    display: grid;
+    text-align: center;
+    align-items: center;
+    /* border: none; */
+}
+
+input:focus{
+    box-shadow: 1px 10px 100px rgba(0, 255, 106, 0.418);
+}
+#p1, #p2{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    height: 35px;
+    text-align: center; 
+    border: 1px solid white;
+    border-radius: 4px;
+}
+#start{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white ;
+    box-shadow: 1px 10px 100px rgba(0, 255, 106, 0.418);
+    border: 1px solid white;
+    border-radius: 4px;
+    transition: 0.5s;
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    height: 50px;
+    align-items: center;
+
+}
+
+#start:hover{
+    box-shadow: 40px 10px 100px rgba(0, 255, 106, 1);
+    background-color:  rgba(0, 255, 106, 0.1);
+
 }
 
 .XO{
     display: grid;
 }
 .board{
-    display: grid;
+    display: none;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-;
+
     align-content: center;
     justify-content: center;
     width:var(--board-size);
     height:var(--board-size);
     color: white;
     cursor: pointer;
+    margin-top: 10%;
+    margin-bottom: -20%;
+}
+
+.board.show{
+    display: grid;
 }
 .taken{
     cursor: not-allowed;

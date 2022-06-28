@@ -10,35 +10,34 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <H1>
-        Press Shift to Start and choose symbol 
-    </H1>
-    <div class="header">
+
+    <div class="header show">
         <div class="playerOptions">
-            <div class="player1">
+            <div class="XOChild">
                 <form>
                     <label>Player one name:</label>
-                    <input type="text">
+                    <input type="text" id="p1">
                 </form>
             </div>
-            <div class="player2">
+            <div class="XOChild">
                 <form>
                     <label>Player two name:</label>
-                    <input type="text" placeholder="Leave blank to play with AI" >
+                    <input type="text"  id="p2" >
                 </form>
 
             </div>
         </div>
         <div class="XO">
-                <div class="XOChild">x</div>
-                <div class="XOChild" >o</div>
-            </div>
+                <div class="XOChild" id="x">x</div>
+                <div class="XOChild" id="o">o</div>
         </div>
+    
+        <button id="start">START!</button>
     </div>
 
     <div id="dynamicBoard" class="board">
     </div>
-    <div class="winning-message" id="winning-message"> X wins!
+    <div class="winning-message" id="winning-message">
         <div class="data-winning-message-text">
             <button id="restartButton">Restart</button>
             
