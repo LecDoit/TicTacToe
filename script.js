@@ -62,15 +62,15 @@ let gameboard = (function() {
             if (event.key == 'Shift'){
                 if (globalTurn % 2 == 0){
                     console.log("its X turn")
-                    XOChild[0].setAttribute('id','turn')
-                    XOChild[1].setAttribute('id','')
+                    // XOChild[0].setAttribute('id','turn')
+                    // XOChild[1].setAttribute('id','')
                     globalTurn++
                     roundCount = true
                     console.log(countToEnd++)
                 } else {
                     console.log("its O turn")
-                    XOChild[0].setAttribute('id','')
-                    XOChild[1].setAttribute('id','turn')
+                    // XOChild[0].setAttribute('id','')
+                    // XOChild[1].setAttribute('id','turn')
                     globalTurn++
                     roundCount = true
                     console.log(countToEnd++)
